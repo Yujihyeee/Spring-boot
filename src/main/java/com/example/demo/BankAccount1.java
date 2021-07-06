@@ -1,11 +1,11 @@
 package com.example.demo;
 
-public class BankAccount {
+public class BankAccount1 {
     String accNumber;
     String ssNumber;
-    int balance = 0;
+    int balance;
 
-    public void initAccount(String acc, String ss, int bal){
+    public BankAccount1(String acc, String ss, int bal){
         accNumber = acc;
         ssNumber = ss;
         balance = bal;

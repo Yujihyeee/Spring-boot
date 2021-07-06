@@ -5,10 +5,9 @@ class TVControl{
         TV LGtv = new TV("LG");
         TV Stv = new TV("Samsung");
         TV htv = new TV("HP", 2048);
-        System.out.println(htv.current_channel);
-        htv.current_channel = 11;
-        System.out.println(htv.current_channel);
-
+        System.out.println(htv.getCurrent_channel());
+        htv.setCurrent_channel(11111);
+        System.out.println(htv.getCurrent_channel());
 
         System.out.println(htv.resolution);
 
@@ -19,15 +18,25 @@ class TVControl{
 
 
 }
+
 public class TV {
     //속성
     String model_name;
     int[] channel;
-    int current_channel;
+    private int current_channel;
     int resolution;
     boolean power;
 
-
+    TV(String tv_name){
+        model_name = tv_name;
+        resolution = 1024;
+        power = false;
+        current_channel = 0;
+        channel = new int[100];
+        for(int i = 0; i < channel.length; i++){
+            channel[i] = i + 1;
+        }
+    }
 
     TV(String tv_name, int resolution){
         model_name = tv_name;
@@ -41,11 +50,20 @@ public class TV {
     }
     //generate
 
-    public TV() {
+    public int getCurrent_channel() {
+
+        return current_channel;
+    }
+
+    public void setCurrent_channel(int current_channel){
+        if(current_channel > 100){
+            this.current_channel = -1;
+            System.out.println("입력오류입니다.");
+        }
+        else this.current_channel = current_channel;
     }
 
     //기능
-
 
 }
 
