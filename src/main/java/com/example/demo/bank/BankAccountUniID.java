@@ -1,5 +1,7 @@
 package com.example.demo.bank;
 
+import com.example.demo.bank.domain.BankAccount;
+
 class BankAccountUniID {
     public static void main(String[] args) {
         BankAccount yoon = new BankAccount();

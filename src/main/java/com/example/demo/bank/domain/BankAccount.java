@@ -1,4 +1,4 @@
-package com.example.demo.bank;
+package com.example.demo.bank.domain;
 
 public class BankAccount {
     String accNumber;

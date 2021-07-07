@@ -1,8 +1,8 @@
-package com.example.demo.bank;
+package com.example.demo.bank.Controller;
 
 import com.example.demo.bank.domain.BankAccount;
 
-public class BankAccountObjectOriantation {
+public class BankAccountController {
     public static void main(String[] args) {
         // 두 개의인스턴스 생성
         BankAccount yoon = new BankAccount();
@@ -21,4 +21,3 @@ public class BankAccountObjectOriantation {
         park.checkMyBalance();
     }
 }
-
