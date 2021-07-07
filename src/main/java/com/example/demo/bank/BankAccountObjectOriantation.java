@@ -1,6 +1,6 @@
 package com.example.demo.bank;
 
-public class BankAccountOO {
+public class BankAccountObjectOriantation {
     public static void main(String[] args) {
         // 두 개의인스턴스 생성
         BankAccount yoon = new BankAccount();

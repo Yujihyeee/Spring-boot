@@ -1,6 +1,6 @@
 package com.example.demo.bank;
 
-public class BankAmountPO {
+public class BankAmountStaticVersion {
     static int balance = 0;
 
     public static void main(String[] args) {
