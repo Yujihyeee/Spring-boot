@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.practice;
 
 public class Circle {
     final double P1 = 3.141592;

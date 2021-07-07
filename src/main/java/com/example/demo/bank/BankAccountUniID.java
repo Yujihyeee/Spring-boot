@@ -1,6 +1,4 @@
-package com.example.demo;
-
-import com.example.demo.BankAccount;
+package com.example.demo.bank;
 
 class BankAccountUniID {
     public static void main(String[] args) {
