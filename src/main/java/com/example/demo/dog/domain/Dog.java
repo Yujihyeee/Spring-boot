@@ -1,9 +1,7 @@
-package com.example.demo.dog;
+package com.example.demo.dog.domain;
 
-//state(name, color, breed, hungry) and behavior (barking, fetching, wagging tail)
-import java.util.Scanner;
 
-class Dog{
+public class Dog{
     private String name;
     private String color;
     private String breed;
@@ -37,21 +35,5 @@ class Dog{
     @Override
     public String toString() {
         return String.format("이름은 %s, 색깔은 %s, 견종은 %s, 배고픔은 %s 입니다.", getName(), getColor(), getBreed(), getHungry());
-    }
-}
-
-public class DogMain {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Dog dog = new Dog();
-        System.out.println("이름?");
-        dog.setName(scanner.next());
-        System.out.println("색깔은?");
-        dog.setColor(scanner.next());
-        System.out.println("견종은?");
-        dog.setBreed(scanner.next());
-        System.out.println("배고픈가?");
-        dog.setHungry(scanner.next());
-        System.out.print(dog.toString());
     }
 }

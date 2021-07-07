@@ -1,6 +1,6 @@
 package com.example.demo.math;
 
-public class gugudan {
+public class gugudanController {
     public static void main(String[] args) {
 
         for (int i = 1; i < 10; i++) {
