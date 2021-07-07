@@ -1,11 +1,11 @@
-package com.example.demo.bank;
+package com.example.demo.practice;
 
 public class BankAccount1 {
     String accNumber;
     String ssNumber;
     int balance;
 
-    public BankAccount1(String acc, String ss, int bal){
+    public void initAccount(String acc, String ss, int bal){
         accNumber = acc;
         ssNumber = ss;
         balance = bal;
@@ -25,3 +25,4 @@ public class BankAccount1 {
         return balance;
     }
 }
+

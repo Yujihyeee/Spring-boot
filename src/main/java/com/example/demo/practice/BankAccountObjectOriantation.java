@@ -1,12 +1,10 @@
-package com.example.demo.bank;
-
-import com.example.demo.bank.domain.BankAccount;
+package com.example.demo.practice;
 
 public class BankAccountObjectOriantation {
     public static void main(String[] args) {
         // 두 개의인스턴스 생성
-        BankAccount yoon = new BankAccount();
-        BankAccount park = new BankAccount();
+        BankAccount1 yoon = new BankAccount1();
+        BankAccount1 park = new BankAccount1();
 
         // 각 인스턴스를 대상으로 예금을 진행
         yoon.deposit(5000);
