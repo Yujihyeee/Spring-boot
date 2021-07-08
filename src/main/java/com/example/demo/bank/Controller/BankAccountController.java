@@ -1,14 +1,14 @@
 package com.example.demo.bank.Controller;
 
-import com.example.demo.bank.domain.BankACCOUNT;
+import com.example.demo.bank.domain.BankAccountDTO;
 
 import java.util.Scanner;
 
-public class BankACCOUNTController {
+public class BankAccountController {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        BankACCOUNT yoon = new BankACCOUNT("12-34-89", "990990-9090990", 10000);
-        BankACCOUNT park = new BankACCOUNT("33-55-09", "770088-5959007", 10000);
+        BankAccountDTO yoon = new BankAccountDTO("12-34-89", "990990-9090990", 10000);
+        BankAccountDTO park = new BankAccountDTO("33-55-09", "770088-5959007", 10000);
         yoon.deposit(5000);
         park.deposit(3000);
         yoon.withdraw(2000);

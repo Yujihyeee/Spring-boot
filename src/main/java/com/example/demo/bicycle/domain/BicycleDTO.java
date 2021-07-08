@@ -2,7 +2,7 @@ package com.example.demo.bicycle.domain;
 
 
 
-public class Bicycle{
+public class BicycleDTO {
     private int gear;
     private String company;
     private int speed;

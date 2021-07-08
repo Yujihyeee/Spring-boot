@@ -2,12 +2,12 @@ package com.example.demo.bank.domain;
 
 
 
-public class BankACCOUNT {
+public class BankAccountDTO {
     private String accNumber;
     private String ssNumber;
     private int balance;
 
-    public BankACCOUNT(String acc, String ss, int bal){
+    public BankAccountDTO(String acc, String ss, int bal){
         accNumber = acc;
         ssNumber = ss;
         balance = bal;
