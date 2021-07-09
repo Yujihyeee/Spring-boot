@@ -16,4 +16,5 @@ public class DogServiceImpl implements DogService{
     public String waggingTail() {
         return null;
     }
+
 }
