@@ -1,23 +1,36 @@
 package com.example.demo.bank.Controller;
 
 import com.example.demo.bank.domain.BankAccountDTO;
+import com.example.demo.bank.service.BankAccountService;
+import com.example.demo.bank.service.BankAccountServiceImpl;
 
 import java.util.Scanner;
 
 public class BankAccountController {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        BankAccountDTO yoon = new BankAccountDTO("12-34-89", "990990-9090990", 10000);
-        BankAccountDTO park = new BankAccountDTO("33-55-09", "770088-5959007", 10000);
-        yoon.deposit(5000);
-        park.deposit(3000);
-        yoon.withdraw(2000);
-        park.withdraw(2000);
-        System.out.printf("yoon 님의 계좌번호는 %s, 주민번호는 %s, 잔액은 %d 원 입니다.",
-                yoon.getAccNumber(), yoon.getSsNumber(),yoon.getBalance());
+    private BankAccountService bankAccountService;
+    private BankAccountDTO bankAccount;
+    private Scanner scanner;
+
+    public BankAccountController() {
+        this.bankAccountService = new BankAccountServiceImpl();
+        this.bankAccount = new BankAccountDTO();
+        this.scanner = new Scanner(System.in);
+
+    }
+    public void BankAccountController02(){
+        System.out.println("계좌를 생성하시려면 이름을 입력하세요");
+        bankAccount.setName(scanner.next());
+        bankAccount.setAccNumber(scanner.next());
+        System.out.println("계좌가 생성되었습니다.");
+        System.out.println("얼마를 입금하시겠습니까?");
+        bankAccount.setMoney(scanner.nextInt());
+        System.out.printf("잔액은 %d원 입니다.", bankAccount.getMoney()+bankAccount.getBalance());
         System.out.println();
-        System.out.printf("park 님의 계좌번호는 %s, 주민번호는 %s, 잔액은 %d 원 입니다.",
-                park.getAccNumber(), park.getSsNumber(),park.getBalance());
+        System.out.println("얼마를 출금하시겠습니까?");
+        bankAccount.setMoney(scanner.nextInt());
+        System.out.println("잔액을 확인하시겠습니까?");
+        bankAccount.setMoney(scanner.nextInt());
+        System.out.println(bankAccount.getBalance());
 
     }
 }
