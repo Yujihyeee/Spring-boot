@@ -3,30 +3,34 @@ package com.example.demo.dog.controller;
 import com.example.demo.dog.domain.DogDTO;
 import com.example.demo.dog.service.DogService;
 import com.example.demo.dog.service.DogServiceImpl;
+import org.springframework.stereotype.Controller;
 
-import java.util.Scanner;
-
+@Controller
 public class DogController {
 
     private DogService dogService;
-    private DogDTO dog;
-    private Scanner scanner;
 
     public DogController(){
-        this.dogService = new DogServiceImpl();
-        this.dog = new DogDTO();
-        this.scanner = new Scanner(System.in);
+        dogService = new DogServiceImpl();
+    }
+    public void add(DogDTO dog){
+        dogService.add(dog);
     }
 
-    public void dog(){
-        System.out.println("이름이 무엇입니까?");
-        dog.setName(scanner.next());
-        System.out.println("색깔은 무엇입니까?");
-        dog.setColor(scanner.next());
-        System.out.println("품종은 무엇입니까?");
-        dog.setBreed(scanner.next());
-        System.out.println("배고픕니까?");
-        dog.setHungry(scanner.next());
-        System.out.print(dog.toString());
+    public void show(){
+        System.out.println("강아지 수 :" + dogService.count());
+        System.out.println(dogService.show());
+    }
+
+    public String barking(String bark) {
+        return dogService.barking(bark);
+    }
+
+    public String fetching(String target) {
+        return dogService.fetching(target);
+    }
+
+    public String waggingTail() {
+        return dogService.waggingTail();
     }
 }

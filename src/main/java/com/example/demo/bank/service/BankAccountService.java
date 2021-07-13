@@ -2,6 +2,8 @@ package com.example.demo.bank.service;
 
 import com.example.demo.bank.domain.BankAccountDTO;
 
+import java.util.List;
+
 /*
 * * 은행이름은 상수로 정한다.
 이름을 입력하면 계좌가 생성된다. 단 계좌번호는 ****-****-**** 이고 랜덤값이다.
@@ -11,6 +13,9 @@ import com.example.demo.bank.domain.BankAccountDTO;
 이름, 계좌번호를 입력한 후 계좌를 해지한다.
 */
 public interface BankAccountService {
+    void add(BankAccountDTO bankAccount);
+    int count();
+    List<BankAccountDTO> show();
 
     void createAccount(BankAccountDTO bank);
     int findBalance(BankAccountDTO bank);

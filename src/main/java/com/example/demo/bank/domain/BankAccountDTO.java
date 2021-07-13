@@ -8,7 +8,9 @@ public class BankAccountDTO {
     private String accNumber;
     private int money;
     private int balance;
-    public static final String BANK_NAME = "비트은행";
     private String date;
     private float interest;
+    public static final String BANK_NAME = "비트은행";
+
+
 }
