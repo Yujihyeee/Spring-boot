@@ -18,7 +18,7 @@ public class BankAccountController {
         Scanner scanner = new Scanner(System.in);
         BankAccountDTO account = null;
         while (true){
-            System.out.println("\n[메뉴]0.종료 1.계좌개설 2.계좌목록");
+            System.out.println("\n[메뉴]0.종료 1.계좌개설 2.계좌목록 3.계좌번호목록");
             switch (scanner.next()){
                 case "0" : return;
                 case "1" :
@@ -32,6 +32,10 @@ public class BankAccountController {
                     System.out.println(bankAccountService.findAll());
                     break;
                 case "3" :
+                    for(String s: bankAccountService.findAllAccountNumbers()){
+                        System.out.println(s + "\n");
+                    }
+                    break;
                 case "4" :
                 case "5" :
                 case "6" :

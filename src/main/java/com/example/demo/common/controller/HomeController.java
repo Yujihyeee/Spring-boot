@@ -31,9 +31,6 @@ public class HomeController {
                     dog.setBreed(scanner.next());
                     dogController.add(dog);
                     break;
-                case "33" :
-                    dogController.show();
-                    break;
                 case "4" :bicycleController.main();break;
                 case "5" : new UtilController().todayAndCurrentTime();break;
                 case "6" : bankAccountController.main();break;

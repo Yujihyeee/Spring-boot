@@ -16,8 +16,8 @@ public interface BankAccountService {
     void createAccount(BankAccountDTO bank);
     int count();
     List<?> findAll();
+    String [] findAllAccountNumbers();
     int findBalance(BankAccountDTO bank);
-    int balance(BankAccountDTO bank);
     int deposit(BankAccountDTO bank);
     int withdraw(BankAccountDTO bank);
     void dropAccount(BankAccountDTO bank);

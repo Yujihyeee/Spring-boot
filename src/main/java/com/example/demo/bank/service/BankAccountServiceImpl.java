@@ -28,6 +28,15 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
+    public String[] findAllAccountNumbers() {
+        String [] accountsNumbers = new String[count()];
+        for(int i = 0; i < count(); i++){
+            accountsNumbers[i] = bankAccounts.get(i).getAccNumber();
+        }
+        return accountsNumbers;
+    }
+
+    @Override
     public void createAccount(BankAccountDTO bank) {
         UtilService utilService = new UtilServiceImpl();
         String first = utilService.randomNumbers(4, false);
@@ -55,11 +64,6 @@ public class BankAccountServiceImpl implements BankAccountService{
         int balance = bankAccount.getBalance() + bankAccount.getMoney();
         bankAccount.setMoney(balance - bank.getMoney());
         return bankAccount.getMoney();
-    }
-
-    @Override
-    public int balance(BankAccountDTO bank) {
-        return bankAccount.getBalance() + bankAccount.getMoney();
     }
 
     @Override
