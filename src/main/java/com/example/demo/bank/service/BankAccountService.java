@@ -13,11 +13,9 @@ import java.util.List;
 이름, 계좌번호를 입력한 후 계좌를 해지한다.
 */
 public interface BankAccountService {
-    void add(BankAccountDTO bankAccount);
-    int count();
-    List<BankAccountDTO> show();
-
     void createAccount(BankAccountDTO bank);
+    int count();
+    List<?> findAll();
     int findBalance(BankAccountDTO bank);
     int balance(BankAccountDTO bank);
     int deposit(BankAccountDTO bank);

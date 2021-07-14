@@ -10,7 +10,7 @@ import java.util.List;
 public class BicycleServiceImpl implements BicycleService{
 
     private BicycleDTO bicycle;
-    private ArrayList<BicycleDTO> bicycles;
+    private List<BicycleDTO> bicycles;
 
     public BicycleServiceImpl(){
         bicycle = new BicycleDTO();
@@ -33,18 +33,18 @@ public class BicycleServiceImpl implements BicycleService{
     }
 
     @Override
-    public int changingGear(int changeGear) {
-        return 0;
+    public void changingGear() {
+
     }
 
     @Override
-    public String changingPedalCadence(String changePedalCadence) {
-        return bicycles.toString() + changePedalCadence + "페달을 밟는다";
+    public void changingPedalCadence() {
+
     }
 
     @Override
-    public int applyingBrakes(int applyBrakes) {
-        return 0;
+    public void applyingBrakes() {
+
     }
 
 

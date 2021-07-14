@@ -1,6 +1,8 @@
 package com.example.demo.bank.service;
 
 import com.example.demo.bank.domain.BankAccountDTO;
+import com.example.demo.util.service.UtilService;
+import com.example.demo.util.service.UtilServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,15 +10,11 @@ import java.util.Random;
 
 public class BankAccountServiceImpl implements BankAccountService{
     private BankAccountDTO bankAccount;
-    private ArrayList<BankAccountDTO> bankAccounts;
+    private List<BankAccountDTO> bankAccounts;
 
     public BankAccountServiceImpl(){
         bankAccount = new BankAccountDTO();
         bankAccounts = new ArrayList<>();
-    }
-    @Override
-    public void add(BankAccountDTO bankAccount) {
-        bankAccounts.add(bankAccount);
     }
 
     @Override
@@ -25,17 +23,19 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public List<BankAccountDTO> show() {
+    public List<?> findAll() {
         return bankAccounts;
     }
 
     @Override
     public void createAccount(BankAccountDTO bank) {
-        Random random = new Random();
-        String randomNumber = "****-****-****";
-        this.bankAccount = new BankAccountDTO();
-        bankAccount.setAccNumber(randomNumber);
-        bankAccount.setName(bank.getName());
+        UtilService utilService = new UtilServiceImpl();
+        String first = utilService.randomNumbers(4, false);
+        String accountNumber = utilService.randomNumbers(4, false) + "-"+
+                utilService.randomNumbers(4, true)+"-"+
+                utilService.randomNumbers(4, true);
+        bank.setAccNumber(accountNumber);
+        bankAccounts.add(bank);
     }
 
     @Override
@@ -64,8 +64,6 @@ public class BankAccountServiceImpl implements BankAccountService{
 
     @Override
     public void dropAccount(BankAccountDTO bank) {
-        return;
+
     }
-
-
 }

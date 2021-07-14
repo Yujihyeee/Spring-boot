@@ -1,15 +1,16 @@
 package com.example.demo.dog.service;
 
 import com.example.demo.dog.domain.DogDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Service
 public class DogServiceImpl implements DogService {
 
     private DogDTO dog;
-    private ArrayList<DogDTO> dogs;
+    private List<DogDTO> dogs;
 
     public DogServiceImpl(){
         dog = new DogDTO();
@@ -18,6 +19,7 @@ public class DogServiceImpl implements DogService {
     @Override
     public void add(DogDTO dog) {
         dogs.add(dog);
+
     }
 
     @Override
@@ -26,7 +28,7 @@ public class DogServiceImpl implements DogService {
     }
 
     @Override
-    public List<DogDTO> show() {
+    public List<?> show() {
         return dogs;
     }
 

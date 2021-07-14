@@ -8,16 +8,7 @@ import com.example.demo.util.service.UtilServiceImpl;
 import java.util.Scanner;
 
 public class UtilController {
-
-    private UtilService utilService;
-    private UtilDTO util;
-    private Scanner scanner;
-
-    public UtilController(){
-        this.utilService = new UtilServiceImpl();
-        this.util = new UtilDTO();
-        this.scanner = new Scanner(System.in);
-    }
+    private UtilService utilService = new UtilServiceImpl();
 
     public void todayAndCurrentTime(){
         System.out.println(utilService.todayAndCurrentTime());

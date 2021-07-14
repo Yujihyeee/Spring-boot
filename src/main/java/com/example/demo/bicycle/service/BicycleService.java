@@ -8,11 +8,11 @@ import java.util.List;
 public interface BicycleService {
     void add(BicycleDTO bicycle);
     int count();
-    List<BicycleDTO> show();
+    List<?> show();
 
-    int changingGear(int changeGear);
-    String changingPedalCadence(String changePedalCadence);
-    int applyingBrakes(int applyBrakes);
+    void changingGear();
+    void changingPedalCadence();
+    void applyingBrakes();
 
 
 }
