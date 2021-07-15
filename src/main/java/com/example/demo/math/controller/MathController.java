@@ -17,7 +17,7 @@ public class MathController extends LambdaUtils {
     public void main(){
         Scanner scanner = new Scanner(System.in);
         while (true){
-            print.accept("\n[메뉴] 0.종료 1.계산기 2.수열 3.구구단");
+            print.accept("\n[메뉴] 0.종료 1.계산기 2.수열 3.구구단\n");
             switch (scanner.next()){
                 case "0" : return;
                 case "1" : calculate(scanner);break;
@@ -28,11 +28,11 @@ public class MathController extends LambdaUtils {
     }
     public void calculate(Scanner scanner) {
         MathDTO math = new MathDTO();
-        print.accept("\n숫자 1 ?");
+        print.accept("숫자 1 ?\n");
         math.setNum1(scanner.nextInt());
-        print.accept("\n연산자");
+        print.accept("연산자\n");
         math.setOpcode(scanner.next());
-        print.accept("\n숫자 2 ?");
+        print.accept("숫자 2 ?\n");
         math.setNum2(scanner.nextInt());
         int result = 0;
         switch (math.getOpcode()) {
@@ -46,9 +46,9 @@ public class MathController extends LambdaUtils {
         }
     public void sequence(Scanner scanner){
         MathDTO numbers = new MathDTO();
-        print.accept("\n수열의 시작값");
+        print.accept("수열의 시작값\n");
         numbers.setNum1(scanner.nextInt());
-        print.accept("\n수열의 마지막값");
+        print.accept("수열의 마지막값\n");
         numbers.setNum2(scanner.nextInt());
         int [] arr = mathService.sequence(numbers);
         for(int i = 0; i < arr.length; i++){
