@@ -1,15 +1,14 @@
 package com.example.demo.bicycle.controller;
 
-import com.example.demo.bank.domain.BankAccountDTO;
 import com.example.demo.bicycle.domain.BicycleDTO;
 import com.example.demo.bicycle.service.BicycleService;
 import com.example.demo.bicycle.service.BicycleServiceImpl;
+import com.example.demo.util.service.LambdaUtils;
 import org.springframework.stereotype.Controller;
 
-import java.util.List;
 import java.util.Scanner;
 @Controller
-public class BicycleController {
+public class BicycleController extends LambdaUtils {
 
     private BicycleService bicycleService;
     private BicycleDTO bicycle;
@@ -23,12 +22,12 @@ public class BicycleController {
 
     public void main() {
         BicycleDTO bicycle = new BicycleDTO();
-        System.out.println("기어는 몇 단? ");
+        print.accept("\n기어는 몇 단? \n");
         bicycle.setGear(scanner.nextInt());
-        System.out.println("제조사는 어디? ");
+        print.accept("\n제조사는 어디? \n");
         bicycle.setCompany(scanner.next());
-        System.out.println("속도는 얼마? ");
+        print.accept("\n속도는 얼마? \n");
         bicycle.setSpeed(scanner.nextInt());
-        System.out.println(bicycle.toString());
+        print.accept(bicycle.toString());
     }
 }

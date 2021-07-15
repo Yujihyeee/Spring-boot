@@ -9,8 +9,8 @@ import java.util.List;
 
 public class BicycleServiceImpl implements BicycleService{
 
-    private BicycleDTO bicycle;
-    private List<BicycleDTO> bicycles;
+    private final BicycleDTO bicycle;
+    private final List<BicycleDTO> bicycles;
 
     public BicycleServiceImpl(){
         bicycle = new BicycleDTO();

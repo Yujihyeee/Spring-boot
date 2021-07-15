@@ -1,6 +1,6 @@
 package com.example.demo.bank.service;
 
-import com.example.demo.bank.domain.BankAccountDTO;
+import com.example.demo.bank.domain.AccountDTO;
 
 import java.util.List;
 
@@ -12,13 +12,13 @@ import java.util.List;
 금액, 계좌번호를 입력하고 출금하면 잔액을 확인한다.
 이름, 계좌번호를 입력한 후 계좌를 해지한다.
 */
-public interface BankAccountService {
-    void createAccount(BankAccountDTO bank);
-    int count();
+public interface BankService {
+    void createAccount(AccountDTO bank);
+    String count();
     List<?> findAll();
     String [] findAllAccountNumbers();
-    int findBalance(BankAccountDTO bank);
-    int deposit(BankAccountDTO bank);
-    int withdraw(BankAccountDTO bank);
-    void dropAccount(BankAccountDTO bank);
+    String findBalance(AccountDTO bank);
+    String deposit(AccountDTO bank);
+    String withdraw(AccountDTO bank);
+    void dropAccount(AccountDTO bank);
 }

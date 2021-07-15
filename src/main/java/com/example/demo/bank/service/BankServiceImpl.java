@@ -1,25 +1,25 @@
 package com.example.demo.bank.service;
 
-import com.example.demo.bank.domain.BankAccountDTO;
+import com.example.demo.bank.domain.AccountDTO;
+import com.example.demo.util.service.LambdaUtils;
 import com.example.demo.util.service.UtilService;
 import com.example.demo.util.service.UtilServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-public class BankAccountServiceImpl implements BankAccountService{
-    private BankAccountDTO bankAccount;
-    private List<BankAccountDTO> bankAccounts;
+public class BankServiceImpl extends LambdaUtils implements BankService {
+    private final AccountDTO bankAccount;
+    private final List<AccountDTO> bankAccounts;
 
-    public BankAccountServiceImpl(){
-        bankAccount = new BankAccountDTO();
+    public BankServiceImpl(){
+        bankAccount = new AccountDTO();
         bankAccounts = new ArrayList<>();
     }
 
     @Override
-    public int count() {
-        return bankAccounts.size();
+    public String count() {
+        return string.apply(bankAccounts.size());
     }
 
     @Override
@@ -29,15 +29,16 @@ public class BankAccountServiceImpl implements BankAccountService{
 
     @Override
     public String[] findAllAccountNumbers() {
-        String [] accountsNumbers = new String[count()];
-        for(int i = 0; i < count(); i++){
+        int count = strToInt.apply(count());
+        String [] accountsNumbers = new String[count];
+        for(int i = 0; i < count; i++){
             accountsNumbers[i] = bankAccounts.get(i).getAccNumber();
         }
         return accountsNumbers;
     }
 
     @Override
-    public void createAccount(BankAccountDTO bank) {
+    public void createAccount(AccountDTO bank) {
         UtilService utilService = new UtilServiceImpl();
         String first = utilService.randomNumbers(4, false);
         String accountNumber = utilService.randomNumbers(4, false) + "-"+
@@ -48,26 +49,24 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public int findBalance(BankAccountDTO bank) {
+    public String findBalance(AccountDTO bank) {
         return bankAccount.getMoney();
     }
 
     @Override
-    public int deposit(BankAccountDTO bank) {
-        int balance = bankAccount.getBalance();
+    public String deposit(AccountDTO bank) {
+        int balance = strToInt.apply(bankAccount.getBalance());
         bankAccount.setMoney(balance + bank.getMoney());
-        return balance;
-    }
-
-    @Override
-    public int withdraw(BankAccountDTO bank) {
-        int balance = bankAccount.getBalance() + bankAccount.getMoney();
-        bankAccount.setMoney(balance - bank.getMoney());
         return bankAccount.getMoney();
     }
 
     @Override
-    public void dropAccount(BankAccountDTO bank) {
+    public String withdraw(AccountDTO bank) {
+        return bankAccount.getMoney();
+    }
+
+    @Override
+    public void dropAccount(AccountDTO bank) {
 
     }
 }

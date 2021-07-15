@@ -9,8 +9,8 @@ import java.util.List;
 @Service
 public class DogServiceImpl implements DogService {
 
-    private DogDTO dog;
-    private List<DogDTO> dogs;
+    private final DogDTO dog;
+    private final List<DogDTO> dogs;
 
     public DogServiceImpl(){
         dog = new DogDTO();
