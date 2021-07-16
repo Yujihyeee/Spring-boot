@@ -19,7 +19,7 @@ public interface BankService {
     String [] findAllAccountNumbers();
     AccountDTO findAccountByAccountNumber(String accountNumber);
     String findBalanceByAccountNumber(String accountNumber);
-    AccountDTO deposit(AccountDTO bank);
-    String withdraw(AccountDTO bank);
+    void deposit(AccountDTO bank);
+    void withdraw(AccountDTO bank);
     void dropAccount(AccountDTO bank);
 }

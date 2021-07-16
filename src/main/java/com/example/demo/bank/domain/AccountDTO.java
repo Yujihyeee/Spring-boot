@@ -10,7 +10,7 @@ public class AccountDTO {
     private String balance;
     private String date;
     private String interest;
-    public static final String BANK_NAME = "비트은행";
+    public static final String BANK_NAME = "\n비트은행";
 
     @Override
     public String toString(){

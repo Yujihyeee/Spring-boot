@@ -25,7 +25,7 @@ public class BankController extends LambdaUtils {
                 case "0" : return;
                 case "1" :
                     account = new AccountDTO();
-                    print.accept("이름:[ ]");
+                    print.accept("\n이름:");
                     account.setName(scanner.next());
                     bankService.createAccount(account);
                     break;
@@ -38,24 +38,28 @@ public class BankController extends LambdaUtils {
                     break;
                 case "3" :
                     for(String s: bankService.findAllAccountNumbers()){
-                        print.accept(s + "\n");
+                        print.accept("\n" + s);
                     }
                     break;
                 case "4" :
-                    print.accept("\n계좌번호: []");
-                    account = new AccountDTO();
-                    account.setAccountNumber(scanner.next());
-                    account = bankService.deposit(account);
-                    print.accept(account.getAccountNumber()+"의 내역"+account);
+                    print.accept("\n잔고를 조회할 계좌번호: ");
+                    bankService.findBalanceByAccountNumber(scanner.next());
                     break;
                 case "5" :
-                    print.accept("계좌번호 :");
+                    print.accept("입금할 계좌번호:");
                     account = new AccountDTO();
                     account.setAccountNumber(scanner.next());
                     print.accept("입금액:");
                     account.setMoney(scanner.next());
+                    bankService.deposit(account);
                     break;
                 case "6" :
+                    print.accept("출금할 계좌번호:");
+                    account = new AccountDTO();
+                    account.setAccountNumber(scanner.next());
+                    print.accept("출금액:");
+                    account.setMoney(scanner.next());
+                    bankService.withdraw(account);
             }
         }
     }

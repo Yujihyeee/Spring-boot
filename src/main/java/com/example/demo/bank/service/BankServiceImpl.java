@@ -5,6 +5,7 @@ import com.example.demo.util.controller.UtilController;
 import com.example.demo.util.service.LambdaUtils;
 import com.example.demo.util.service.UtilService;
 import com.example.demo.util.service.UtilServiceImpl;
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,9 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
                 utilService.randomNumbers(4, true)+ "-" +
                 utilService.randomNumbers(4, true);
         account.setAccountNumber(accountNumber);
+        account.setBalance("0");
+        account.setDate(utilService.todayAndCurrentTime());
+        account.setInterest("1.20");
         accounts.add(account);
     }
 
@@ -67,7 +71,7 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
         return balance;
     }
 
-    @Override
+   /* @Override
     public AccountDTO deposit(AccountDTO param) {
         AccountDTO account = findAccountByAccountNumber((param.getAccountNumber()));
         int restMoney = strToInt.apply(account.getMoney());
@@ -79,11 +83,36 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
             }
         }
         return account;
+    }*/
+
+    @Override
+    public void deposit(AccountDTO param) {
+        for(AccountDTO a: accounts){
+            if(param.getAccountNumber().equals(a.getAccountNumber())) {
+                int balance = strToInt.apply(a.getBalance());
+                a.setBalance(string.apply(balance + strToInt.apply(param.getMoney())));
+                print.accept("입금 후 정보 :" + a);
+                break;
+            }
+            else{
+                print.accept("해당 계좌가 존재하지 않습니다.");
+            }
+        }
     }
 
     @Override
-    public String withdraw(AccountDTO bank) {
-        return "";
+    public void withdraw(AccountDTO bank) {
+        for(AccountDTO b :accounts){
+            if(bank.getAccountNumber().equals(b.getAccountNumber())){
+                int balance = strToInt.apply(b.getBalance());
+                b.setBalance(string.apply(balance - strToInt.apply(bank.getMoney())));
+                print.accept("출금 후 정보:" + b);
+                break;
+            }
+            else{
+                print.accept("해당 계좌가 존재하지 않습니다.");
+            }
+        }
     }
 
     @Override
