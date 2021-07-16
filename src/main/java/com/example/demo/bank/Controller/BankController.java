@@ -42,8 +42,8 @@ public class BankController extends LambdaUtils {
                     }
                     break;
                 case "4" :
-                    print.accept("\n잔고를 조회할 계좌번호: ");
-                    bankService.findBalanceByAccountNumber(scanner.next());
+                    print.accept("\n잔액를 조회할 계좌번호: ");
+                    print.accept("\n잔액 : " + bankService.findBalanceByAccountNumber(scanner.next()));
                     break;
                 case "5" :
                     print.accept("입금할 계좌번호:");
@@ -60,6 +60,7 @@ public class BankController extends LambdaUtils {
                     print.accept("출금액:");
                     account.setMoney(scanner.next());
                     bankService.withdraw(account);
+                    break;
             }
         }
     }
