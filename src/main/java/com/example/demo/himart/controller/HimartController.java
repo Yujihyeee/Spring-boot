@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class HimartController extends LambdaUtils{
+
     private final HimartService himartService;
     public HimartController() {
         himartService = new HimartServiceImpl();

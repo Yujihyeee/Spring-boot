@@ -96,6 +96,7 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
             }
             else{
                 print.accept("해당 계좌가 존재하지 않습니다.");
+                break;
             }
         }
     }
@@ -111,6 +112,7 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
             }
             else{
                 print.accept("해당 계좌가 존재하지 않습니다.");
+                break;
             }
         }
     }
